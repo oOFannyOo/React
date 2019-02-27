@@ -10,16 +10,25 @@ class LoginForm extends Component {
         };
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
     handleSubmit(event) {
+		console.log(this);
         console.log(this.state);
+        
+		this.props.updateMyTodoList(this.state.title);
         // alert('A email was submitted: ' + this.state.email);
         // event.preventDefault();
         // console.log(this.state);
         // this.verifyConfirmPwd();
 
     }
+	
+	handleReset(event) {
+		this.props.resetMyTodoList();
+    }
+	
     handleTitleChange(event) {
         this.onChange("title", event.target.value);
     }
@@ -37,6 +46,7 @@ class LoginForm extends Component {
                 </label>
 
                 <input type="button" name="mySubmit" value="Ajouter dans la liste" onClick={this.handleSubmit}/>
+                <input type="button" name="myReset" value="Reset todoList" onClick={this.handleReset}/>
             </form>
         );
     }
