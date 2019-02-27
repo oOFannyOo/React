@@ -35,7 +35,7 @@ class TodoParentList extends Component {
 		todoList.push({
 			id: lastID+1,
 			title : title,
-			name : 'sendEmail' +(lastID+1),
+			name : 'doSomething' +(lastID+1),
 			isDone: false
 		});
 	
